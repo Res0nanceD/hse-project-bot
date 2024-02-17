@@ -17,12 +17,12 @@
     `Pycharm`: Перейдите в `Pycharm` > `Settings` > `Project: tgBot` > `Python Interpreter`> `Add Interpreter`> `Existing` и укажите этот путь: `<путь к проекту>/env/bin/python`
 
 
-Альтернативный вариант запуска в докере
+### Альтернативный вариант запуска в докере
 
 1. Находясь в корне проекта выполните 
 
-```./docker/build_run_docker.sh```
+    ```./docker/build_run_docker.sh```
 
 2. Затем
 
-```python run_bot.py```
+    ```python run_bot.py```
