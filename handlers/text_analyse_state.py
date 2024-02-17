@@ -37,7 +37,7 @@ async def log_reg_answer(message: Message, state: FSMContext):
 
 # Вывод результата Similar_text
 @router.message(BotStates.sim_state)
-async def raandom_forest_answer(message: Message):
+async def random_forest_answer(message: Message):
     await message.answer(
         text=get_sim_text(message.text.lower()),
         reply_markup=keyboard_for_leaf_vertex()

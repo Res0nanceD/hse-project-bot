@@ -13,7 +13,7 @@ from keyboards.keyboard_for_leaf_vertex import keyboard_for_leaf_vertex
                 F.text.lower() == "логистическая регрессия")
 async def log_reg_chosen(message: Message, state: FSMContext):
     await message.answer(
-        text="Поздравляю, вы выбрали логистическую регрессию! Теперь отправте боту Вашу новость",
+        text="Поздравляю, вы выбрали `логистическую регрессию`! Теперь отправте боту Вашу новость",
         reply_markup=keyboard_for_leaf_vertex()
     )
     await state.update_data(navigator="LogReg")
