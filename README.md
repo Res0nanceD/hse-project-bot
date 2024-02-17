@@ -21,8 +21,8 @@
 
 1. Находясь в корне проекта выполните 
 
-'''./docker/build_run_docker.sh'''
+```./docker/build_run_docker.sh```
 
 2. Затем
 
-'''python run_bot.py'''
+```python run_bot.py```
