@@ -3,13 +3,16 @@
 # Название виртуального окружения
 VENV_NAME=env
 
+# Путь до python3.10
+PYTHON_PATH=$(which python3.10)
+
 # Проверка наличия папки виртуального окружения
 if [ -d "$VENV_NAME" ]; then
   echo "Виртуальное окружение '$VENV_NAME' уже существует."
 else
   # Создание виртуального окружения
   echo "Создание виртуального окружения '$VENV_NAME'..."
-  python3 -m venv $VENV_NAME
+  $PYTHON_PATH -m venv $VENV_NAME
   echo "Виртуальное окружение '$VENV_NAME' успешно создано."
 fi
 
