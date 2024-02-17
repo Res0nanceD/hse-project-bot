@@ -1,0 +1,10 @@
+FROM python:3.10-slim
+RUN mkdir telebot root_new
+WORKDIR /telebot
+COPY $PWD/../ /telebot/
+COPY $PWD/../docker/requirements.txt /telebot/requirements.txt
+COPY $PWD/../docker/setup_project_docker.sh /telebot/setup_project.sh
+RUN apt update && apt upgrade -y 
+RUN apt-get install curl -y && \
+    apt-get install unzip -y
+RUN ./setup_project.sh

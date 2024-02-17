@@ -15,3 +15,14 @@
 4. Измените путь к интерпритатору в Ваше IDE нас созданную env:
 
     `Pycharm`: Перейдите в `Pycharm` > `Settings` > `Project: tgBot` > `Python Interpreter`> `Add Interpreter`> `Existing` и укажите этот путь: `<путь к проекту>/env/bin/python`
+
+
+Альтернативный вариант запуска в докере
+
+1. Находясь в корне проекта выполните 
+
+'''./docker/build_run_docker.sh'''
+
+2. Затем
+
+'''python run_bot.py'''

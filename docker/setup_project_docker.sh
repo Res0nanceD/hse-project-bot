@@ -1,28 +1,12 @@
 #!/bin/bash
 
-# Название виртуального окружения
-VENV_NAME=env
-
 # Путь до python3.10
 PYTHON_PATH=$(which python3.10)
-
-# Проверка наличия папки виртуального окружения
-if [ -d "$VENV_NAME" ]; then
-  echo "Виртуальное окружение '$VENV_NAME' уже существует."
-else
-  # Создание виртуального окружения
-  echo "Создание виртуального окружения '$VENV_NAME'..."
-  $PYTHON_PATH -m venv $VENV_NAME
-  echo "Виртуальное окружение '$VENV_NAME' успешно создано."
-fi
-
-# Активация виртуального окружения
-echo "Активация виртуального окружения '$VENV_NAME'..."
-source $VENV_NAME/bin/activate
 
 # Установка зависимостей из файла requirements.txt
 if [ -f "requirements.txt" ]; then
   echo "Установка зависимостей из файла requirements.txt..."
+  pwd
   pip install -r requirements.txt
   echo "Зависимости успешно установлены."
 else
