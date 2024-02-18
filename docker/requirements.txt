@@ -48,3 +48,4 @@ tzdata==2024.1
 urllib3==2.2.0
 wldhx.yadisk-direct==0.0.6
 yarl==1.9.4
+pytest

@@ -4,7 +4,7 @@ from handlers.start_state import router
 from bot_graph import BotStates
 from keyboards.keyBoard_for_prob import keyBoard_for_prob
 from keyboards.keyboard_for_leaf_vertex import keyboard_for_leaf_vertex
-from text_preprocessing import get_sim_text
+from tests.text_preprocessing import get_sim_text
 from models_functions import predict_lr, predict_proba, format_predictions
 
 

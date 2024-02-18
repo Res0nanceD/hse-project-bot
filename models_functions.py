@@ -1,4 +1,4 @@
-from text_preprocessing import preprocess
+from tests.text_preprocessing import preprocess
 from run_bot import enc_full, dec, lr
 
 
