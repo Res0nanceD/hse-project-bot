@@ -21,9 +21,9 @@ echo "Активация виртуального окружения '$VENV_NAME
 source $VENV_NAME/bin/activate
 
 # Установка зависимостей из файла requirements.txt
-if [ -f "requirements.txt" ]; then
+if [ -f "docker/requirements.txt" ]; then
   echo "Установка зависимостей из файла requirements.txt..."
-  pip install -r requirements.txt
+  pip install -r docker/requirements.txt
   echo "Зависимости успешно установлены."
 else
   echo "Файл requirements.txt не найден. Пропуск установки зависимостей."

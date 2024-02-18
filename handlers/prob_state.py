@@ -19,8 +19,7 @@ async def task_chosen_incorrectly(message: Message, state: FSMContext):
 
 
 # handlers/rf_prob.py
-@router.message(BotStates.rf_prob_state,
-                F.text.lower() == "покажи процент уверенности модели")
+@router.message(BotStates.rf_prob_state, F.text.lower() == "покажи процент уверенности модели")
 async def task_chosen_incorrectly(message: Message, state: FSMContext):
     user_data = await state.get_data()
     await message.answer(

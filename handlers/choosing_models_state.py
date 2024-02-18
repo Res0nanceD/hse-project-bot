@@ -9,8 +9,7 @@ from keyboards.keyboard_for_leaf_vertex import keyboard_for_leaf_vertex
 
 # Роутер для обработка запроса "LogReg"
 # handlers/logreg.py
-@router.message(BotStates.choosing_model_state,
-                F.text.lower() == "логистическая регрессия")
+@router.message(BotStates.choosing_model_state, F.text.lower() == "логистическая регрессия")
 async def log_reg_chosen(message: Message, state: FSMContext):
     await message.answer(
         text="Поздравляю, вы выбрали `логистическую регрессию`! Теперь отправте боту Вашу новость",

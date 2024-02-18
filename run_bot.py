@@ -16,6 +16,7 @@ warnings.filterwarnings("ignore")
 logging.basicConfig(level=logging.INFO)
 
 lr, stopwords_ru, enc_full, dec = load_models()
+
 df_base, vectors = prepare_dataset(enc_full)
 
 print("Данные в моделе загружены")

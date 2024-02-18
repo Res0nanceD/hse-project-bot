@@ -17,7 +17,7 @@
     `Pycharm`: Перейдите в `Pycharm` > `Settings` > `Project: tgBot` > `Python Interpreter`> `Add Interpreter`> `Existing` и укажите этот путь: `<путь к проекту>/env/bin/python`
 
 
-### Альтернативный вариант запуска в докере
+### Альтернативный вариант - запуск в докере2
 
 1. Находясь в корне проекта выполните 
 

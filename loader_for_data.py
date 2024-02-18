@@ -1,10 +1,12 @@
 import pandas as pd
+import numpy as np
 
 
 def prepare_dataset(enc_full):
     df_source = pd.read_csv('data/final_dataset.csv')
     df_source_new = df_source[(df_source['topic'] != 'Россия') & (df_source['topic'] != 'Мир')]
     res = []
+    np.random.seed(42)
     for topic in df_source_new['topic'].unique():
         res.append(df_source_new[df_source_new['topic'] == topic].sample(100))
     df_base = pd.concat(res)
