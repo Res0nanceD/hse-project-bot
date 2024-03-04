@@ -6,7 +6,7 @@ from keyboards.keyboard_for_main_menu import keyboard_for_main_menu
 
 
 @router.message(BotStates.registration_state)
-async def cmd_start(message: Message, state: FSMContext):
+async def receive_name(message: Message, state: FSMContext):
     await message.answer(
         text=f"Добро пожаловать, {message.text}!\nВыберите одну из опций",
         reply_markup=keyboard_for_main_menu()

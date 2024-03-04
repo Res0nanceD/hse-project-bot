@@ -10,7 +10,7 @@ from keyboards.keyboard_for_main_menu import keyboard_for_main_menu
 # Хэндлеры для оценки работы бота
 @router.message(BotStates.rate_state,
                 F.text.lower() == "плохо 🤬")
-async def task_chosen_incorrectly(message: Message, state: FSMContext):
+async def app_rated_bad(message: Message, state: FSMContext):
     user_data = await state.get_data()
     await message.answer(
         text=f"Жаль, что Вам не понравилось, {user_data['user_name']}"
@@ -26,7 +26,7 @@ async def task_chosen_incorrectly(message: Message, state: FSMContext):
 # Хэндлеры для оценки работы бота
 @router.message(BotStates.rate_state,
                 F.text.lower() == "хорошо 🙂")
-async def task_chosen_incorrectly(message: Message, state: FSMContext):
+async def app_rated_norm(message: Message, state: FSMContext):
     user_data = await state.get_data()
     await message.answer(
         text=f"Спасибо за оценку, {user_data['user_name']}!"
@@ -42,7 +42,7 @@ async def task_chosen_incorrectly(message: Message, state: FSMContext):
 # Хэндлеры для оценки работы бота
 @router.message(BotStates.rate_state,
                 F.text.lower() == "отлично 😀")
-async def task_chosen_incorrectly(message: Message, state: FSMContext):
+async def app_rated_good(message: Message, state: FSMContext):
     user_data = await state.get_data()
     await message.answer(text="🎉")
     await message.answer(

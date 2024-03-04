@@ -24,7 +24,7 @@ async def log_reg_answer(message: Message, state: FSMContext):
 
 # Вывод результата Random Forest
 @router.message(BotStates.randomforest_state)
-async def log_reg_answer(message: Message, state: FSMContext):
+async def rf_answer(message: Message, state: FSMContext):
     await state.update_data(predict_probabilities=format_predictions(
         predict_proba(message.text.lower())))  # запоминаем вероятности для следующего шага
     await message.answer(
@@ -37,7 +37,7 @@ async def log_reg_answer(message: Message, state: FSMContext):
 
 # Вывод результата Similar_text
 @router.message(BotStates.sim_state)
-async def random_forest_answer(message: Message):
+async def sim_text_answer(message: Message):
     await message.answer(
         text=get_sim_text(message.text.lower()),
         reply_markup=keyboard_for_leaf_vertex()

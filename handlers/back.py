@@ -9,7 +9,7 @@ from keyboards.keyboard_for_leaf_vertex import keyboard_for_leaf_vertex
 
 
 @router.message(F.text.lower() == "назад")
-async def back_to_menue(message: Message, state: FSMContext):
+async def back_to_menu(message: Message, state: FSMContext):
     user_data = await state.get_data()
     current_state_name = user_data['navigator']
     graph_navigator = GraphNavigator(G, current_state_name)
