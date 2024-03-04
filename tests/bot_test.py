@@ -1,5 +1,6 @@
 import pytest
 from aiogram.filters import Command
+from aiogram.methods import SendMessage
 from handlers.start_state import cmd_start, help_with_start
 from handlers.registration_state import receive_name
 from handlers.back import back_to_menu
@@ -16,13 +17,21 @@ from aiogram_tests.types.dataset import CALLBACK_QUERY
 from aiogram_tests.types.dataset import MESSAGE
 
 
+# @pytest.mark.asyncio
+# async def test_command_handler():
+#     requester = MockedBot(MessageHandler(cmd_start, Command(commands=["start"])))
+#     calls = await requester.query(MESSAGE.as_object(text="/start"))
+#     answer_message = calls.send_message.fetchone().text
+#     assert answer_message == "Hello, new user!"
+
+
 @pytest.mark.asyncio
 async def test_command_handler():
-    requester = MockedBot(MessageHandler(cmd_start, Command(commands=["start"])))
+    requester = MockedBot(request_handler=MessageHandler(cmd_start, Command(commands=["start"])))
+    requester.add_result_for(SendMessage, ok=True)
     calls = await requester.query(MESSAGE.as_object(text="/start"))
     answer_message = calls.send_message.fetchone().text
     assert answer_message == "Для продолжения введите свое имя"
-
 #
 # @pytest.mark.asyncio
 # async def test_message_handler():

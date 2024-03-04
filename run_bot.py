@@ -6,7 +6,8 @@ from loader_for_models import load_models
 from loader_for_data import prepare_dataset
 from handlers.start_state import router
 # Порядок импортов важен
-
+from handlers import start_state, registration_state, back, main_menu_state
+from handlers import choosing_models_state, text_analyse_state, prob_state, rating_state
 # from handlers import none_state
 
 warnings.filterwarnings("ignore")
@@ -20,11 +21,11 @@ df_base, vectors = prepare_dataset(enc_full)
 
 print("Данные в моделе загружены")
 
+dp = Dispatcher()
 
 # Запуск бота
 async def main():
     bot = Bot(token="6708563519:AAHaTh5VfMYpkCUu8gHsBkCxIBGaY8mfOLo")
-    dp = Dispatcher()
     dp.include_router(router)
     # Запускаем бота и пропускаем все накопленные входящие
     # Да, этот метод можно вызвать даже если у вас поллинг
