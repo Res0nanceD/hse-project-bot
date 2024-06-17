@@ -12,7 +12,7 @@ from keyboards.keyboard_for_leaf_vertex import keyboard_for_leaf_vertex
 @router.message(BotStates.choosing_model_state, F.text.lower() == "логистическая регрессия")
 async def log_reg_chosen(message: Message, state: FSMContext):
     await message.answer(
-        text="Поздравляю, вы выбрали `логистическую регрессию`! Теперь отправте боту Вашу новость",
+        text="Вы выбрали `логистическую регрессию`! Теперь отправьте боту Вашу новость",
         reply_markup=keyboard_for_leaf_vertex()
     )
     await state.update_data(navigator="LogReg")
@@ -22,14 +22,13 @@ async def log_reg_chosen(message: Message, state: FSMContext):
 # Роутер для обработка запроса "RandomForest"
 # handlers/random_forest.py
 @router.message(BotStates.choosing_model_state,
-                F.text.lower() == "random forest")
+                F.text.lower() == "lstm")
 async def random_forest_chosen(message: Message, state: FSMContext):
     await message.answer(
-        text="К сожалению random forest еще в разработке, поэтому используемая модель логистическая регрессия."
-             " Теперь отправте боту Вашу новость",
+        text="Вы выбрали `lstm`! Теперь отправьте боту Вашу новость",
         reply_markup=keyboard_for_leaf_vertex()
     )
-    await state.update_data(navigator="RandomForest")
+    await state.update_data(navigator="lstm")
     await state.set_state(BotStates.randomforest_state)
 
 

@@ -28,7 +28,7 @@ async def back_to_menu(message: Message, state: FSMContext):
         await message.answer(text="Введите другую новость.\nВыбранная модель: LogReg",
                              reply_markup=keyboard_for_leaf_vertex())
     if parent_state_name == "RandomForest":
-        await message.answer(text="Введите другую новость.\nВыбранная модель: LogReg (randomForest в разработке)",
+        await message.answer(text="Введите другую новость.\nВыбранная модель: LSTM",
                              reply_markup=keyboard_for_leaf_vertex())
     await state.update_data(navigator=parent_state_name)
     await state.set_state(state=parent_state)

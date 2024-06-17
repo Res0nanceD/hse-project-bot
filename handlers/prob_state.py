@@ -20,7 +20,7 @@ async def show_log_reg_prob(message: Message, state: FSMContext):
 
 # handlers/rf_prob.py
 @router.message(BotStates.rf_prob_state, F.text.lower() == "покажи процент уверенности модели")
-async def show_rf_prob(message: Message, state: FSMContext):
+async def show_lstm_prob(message: Message, state: FSMContext):
     user_data = await state.get_data()
     await message.answer(
         text=user_data['predict_probabilities'],

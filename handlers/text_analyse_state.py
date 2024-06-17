@@ -6,6 +6,7 @@ from keyboards.keyBoard_for_prob import keyBoard_for_prob
 from keyboards.keyboard_for_leaf_vertex import keyboard_for_leaf_vertex
 from tests.text_preprocessing import get_sim_text
 from models_functions import predict_lr, predict_proba, format_predictions
+from lstm_integration import classify_text_lstm
 
 
 # Хэндлеры для обработки текстов новостей
@@ -24,11 +25,13 @@ async def log_reg_answer(message: Message, state: FSMContext):
 
 # Вывод результата Random Forest
 @router.message(BotStates.randomforest_state)
-async def rf_answer(message: Message, state: FSMContext):
-    await state.update_data(predict_probabilities=format_predictions(
-        predict_proba(message.text.lower())))  # запоминаем вероятности для следующего шага
+async def lstm_answer(message: Message, state: FSMContext):
+    predicted_probabilities = classify_text_lstm(message.text.lower())
+    predicted_label = max(predicted_probabilities, key=lambda x: x[1])[0]
+    print(predicted_label)
+    await state.update_data(predict_probabilities=format_predictions(predicted_probabilities))  # запоминаем вероятности для следующего шага
     await message.answer(
-        text=predict_lr(message.text.lower()),
+        text=predicted_label,
         reply_markup=keyBoard_for_prob()
     )
     await state.update_data(navigator="Уверенность randomForest")
